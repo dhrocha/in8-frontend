@@ -81,7 +81,30 @@ class UsersListContainer extends Component {
           </TabsContainer>
         </MobileOnlyView>
         <TabletView>
-          <div></div>
+          <TableUsers>
+            <thead>
+              <tr>
+                <TableUsersTh></TableUsersTh>
+                <TableUsersTh>NOME</TableUsersTh>
+                <TableUsersTh>EMAIL</TableUsersTh>
+                <TableUsersTh>NASCIMENTO</TableUsersTh>
+                <TableUsersTh>TELEFONE</TableUsersTh>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.users.map((user, index) => {
+                return (
+                  <tr key={'user_' + user.id}>
+                    <TableUsersTd>{index + 1}</TableUsersTd>
+                    <TableUsersTd>{user.name}</TableUsersTd>
+                    <TableUsersTd>{user.email}</TableUsersTd>
+                    <TableUsersTd>{user.birthday}</TableUsersTd>
+                    <TableUsersTd>{user.phone}</TableUsersTd>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </TableUsers>
         </TabletView>
         <BrowserView>
           <TableUsers>
